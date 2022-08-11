@@ -1,17 +1,22 @@
-
 import ReactDOM from "react-dom";
 import React from "react";
 
 
-import ContentComponent from './components/ContentComponent'
 import HeaderComponent from './components/HeaderComponent'
 import FooterComponent from './components/FooterComponent'
+import App from './components/HeadElemnt'
+import StockComponent from './components/ContentComponent'
+import Sign_in from './components/singnin'
 ReactDOM.render((
+
   <>
+    <App></App>
+    <Sign_in></Sign_in><br/>
+    <HeaderComponent></HeaderComponent><br/>
+    <StockComponent></StockComponent>
     
-    <HeaderComponent></HeaderComponent><br/><hr/>
-    <ContentComponent></ContentComponent><br/><hr/>
     <FooterComponent></FooterComponent>
+    
   </>
 )
 ,document.getElementById("root"));

@@ -1,6 +1,7 @@
 
 import React from 'react';
 
+
 const myStyle= {
     backgroundImage: "url('https://tse2.mm.bing.net/th?id=OIP.SrNMNlAjYmuQ1FfiI0gKjgHaE8&pid=Api&P=0')",
     height : '50vh',
@@ -17,6 +18,7 @@ export default function HeaderComponent() {
     return (
     
         <div>
+
             <div style ={myStyle}>
                 <div className="text-center" >
                     <h1 style={{ color: 'white',fontWeight: 'bold',justifyContent: 'center', alignItems:"center", lineHeight:"250px"}}className=" text-100000xl"> PAISA VAYAPAR</h1>
@@ -25,8 +27,11 @@ export default function HeaderComponent() {
                     
                     
                 </div>
-            </div>
+            </div> 
         </div>
+
+        
+        
         
     )
 }

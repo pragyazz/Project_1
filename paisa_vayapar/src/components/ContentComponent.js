@@ -1,13 +1,52 @@
-export default function ContentComponent() {
+import { useState, useEffect } from "react";
+import Axios from "axios";
+
+export default function StockComponent() {
+    var [stockData, setStockData] = useState({
+        stockName: "",
+        stockPrice: 0,
+        priceChangePercent: 0,
+        dataColor: "red"
+    })
+
+    useEffect(() => {
+        
+        setInterval(() => {
+            Axios.get("https://priceapi.moneycontrol.com/pricefeed/bse/equitycash/SBI").then((response) => {
+
+                setStockData((stockData) => {
+                    console.log(stockData.stockPrice)
+                    if(stockData.stockPrice > response.data.data.pricecurrent) {
+                        return {
+                            stockPrice: response.data.data.pricecurrent,
+                            priceChangePercent: response.data.data.pricepercentchange,
+                            dataColor: "green",
+                            stockName: response.data.data.SC_FULLNM
+                        }
+                    } else {
+                        return {
+                            stockPrice: response.data.data.pricecurrent,
+                            priceChangePercent: response.data.data.pricepercentchange,
+                            dataColor: "red",
+                            stockName: response.data.data.SC_FULLNM
+                        }
+                    }
+                })
+
+                
+            })
+        }, 5000)
+    }, [])
+
     return (
-        <>
-            <h1>This is Content Container</h1>
-       </>
+        <div style={{padding: "10px", margin: "10px", color: stockData.dataColor}}>
+            <h1>Stock Price for {stockData.stockName} is <label>{stockData.stockPrice}</label></h1>
+            <h2>Price Percent Change <label>{stockData.priceChangePercent}</label></h2><hr/>
+        </div>
     )
 }
 
-export function OtherContentComponent() {
-    return (
-        <h1>This is Other Content Component</h1>
-    )
-}
+
+
+
+

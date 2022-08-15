@@ -9,10 +9,11 @@ document.head.appendChild(styleLink);
 const Adverti = () => (
 <div>
 
-	<Advertisement unit='medium rectangle'>
-	<img src='https://i.ytimg.com/vi/0CtEpG4QeuE/maxresdefault.jpg' />
+	<Advertisement unit='rectangle' >
+	<img src='https://thumb10.shutterstock.com/display_pic_with_logo/11994/599487233/stock-vector-stock-market-word-cloud-collage-business-concept-background-599487233.jpg' />
 	</Advertisement>	
 </div>
 )
 
 export default Adverti
+
